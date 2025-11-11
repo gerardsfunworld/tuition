@@ -1,1 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduConnect - Online Tuition Platform</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">EduConnect</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#courses">Courses</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
 
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>Learn from Anywhere, Anytime</h1>
+            <p>Join our interactive online classes with experienced tutors</p>
+            <button class="btn-primary" onclick="showClassJoin()">Join a Class</button>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section id="courses" class="courses">
+        <div class="container">
+            <h2>Available Courses</h2>
+            <div class="course-grid">
+                <div class="course-card">
+                    <h3>Mathematics</h3>
+                    <p>Algebra, Calculus, Geometry</p>
+                    <button class="btn-secondary" onclick="showClassJoin()">Join Class</button>
+                </div>
+                <div class="course-card">
+                    <h3>Science</h3>
+                    <p>Physics, Chemistry, Biology</p>
+                    <button class="btn-secondary" onclick="showClassJoin()">Join Class</button>
+                </div>
+                <div class="course-card">
+                    <h3>English</h3>
+                    <p>Grammar, Literature, Writing</p>
+                    <button class="btn-secondary" onclick="showClassJoin()">Join Class</button>
+                </div>
+                <div class="course-card">
+                    <h3>Programming</h3>
+                    <p>Python, JavaScript, Web Dev</p>
+                    <button class="btn-secondary" onclick="showClassJoin()">Join Class</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About Us</h2>
+            <p>EduConnect provides quality online education with interactive live classes. Our experienced tutors use modern technology to deliver engaging lessons that help students excel.</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <p>Email: info@educonnect.com</p>
+            <p>Phone: +1 234 567 8900</p>
+        </div>
+    </section>
+
+    <!-- Class Join Modal -->
+    <div id="joinModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Join Online Class</h2>
+            <input type="text" id="studentName" placeholder="Enter your name" class="input-field">
+            <input type="text" id="classCode" placeholder="Enter class code" class="input-field">
+            <button class="btn-primary" onclick="joinClass()">Enter Class</button>
+        </div>
+    </div>
+
+    <!-- Video Conference Room -->
+    <div id="classRoom" class="class-room hidden">
+        <div class="room-header">
+            <h2>Live Class Session</h2>
+            <button class="btn-danger" onclick="leaveClass()">Leave Class</button>
+        </div>
+        <div class="video-container">
+            <div class="video-wrapper">
+                <video id="localVideo" autoplay muted playsinline></video>
+                <div class="video-label">You</div>
+            </div>
+            <div class="video-wrapper">
+                <video id="remoteVideo" autoplay playsinline></video>
+                <div class="video-label">Teacher</div>
+            </div>
+        </div>
+        <div class="controls">
+            <button id="toggleVideo" class="control-btn" onclick="toggleVideo()">
+                <span id="videoIcon">📹</span> Camera
+            </button>
+            <button id="toggleAudio" class="control-btn" onclick="toggleAudio()">
+                <span id="audioIcon">🎤</span> Microphone
+            </button>
+            <button class="control-btn" onclick="shareScreen()">
+                <span>🖥️</span> Share Screen
+            </button>
+        </div>
+        <div class="chat-section">
+            <h3>Chat</h3>
+            <div id="chatMessages" class="chat-messages"></div>
+            <div class="chat-input-wrapper">
+                <input type="text" id="chatInput" placeholder="Type a message..." class="chat-input">
+                <button onclick="sendMessage()" class="btn-secondary">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 EduConnect. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
